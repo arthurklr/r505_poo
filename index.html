@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        class chat {
+            #couleur;
+            #race;
+            #age;
+            constructor({couleur, race, age} = {}) {
+                this.#couleur = couleur;
+                this.#race = race;
+                this.#age = age;
+            }
+            ajouterAge() {
+                this.#age++;
+            }
+            afficherAge() {
+                console.log(this.#age);
+            }
+        }
+
+        let monChat = new chat({couleur: "rouge", race: "siamois", age: 3});
+        let monChat2 = new chat({couleur: "noir", race: "persan", age: 5});
+        let monChat3 = new chat({couleur: "blanc", race: "maine coon", age: 2});
+        monChat2.ajouterAge();
+        monChat.afficherAge();
+        monChat2.afficherAge();
+        monChat3.afficherAge();
+    </script>
+</body>
+
+</html>

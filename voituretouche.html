@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .voiture {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+
+        .container {
+            min-height: 100vh;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="voiture"></div>
+    </div>
+    <script>
+        class Voiture {
+            constructor() {
+                this.position = { x: 0, y: 0 };
+                this.voiture = document.querySelector(".voiture");
+                document.addEventListener("keydown", (e) => {
+                    switch (e.key.toLowerCase()) {
+                        case "d":
+                            this.avancer();
+                            break;
+                        case "q":
+                            this.reculer();
+                            break;
+                        case "z":
+                            this.monter();
+                            break;
+                        case "s":
+                            this.descendre();
+                            break;
+                    }
+                });
+            }
+            avancer() {
+                this.position.x++;
+                this.updatePosition();
+            }
+            reculer() {
+                this.position.x--;
+                this.updatePosition();
+            }
+            descendre() {
+                this.position.y++;
+                this.updatePosition();
+            }
+            monter() {
+                this.position.y--;
+                this.updatePosition();
+            }
+            updatePosition() {
+                this.voiture.style.transform = `translate(${this.position.x * 10}px, ${this.position.y * 10}px)`;
+            }
+        }
+        new Voiture();
+    </script>
+</body>
+
+</html>
